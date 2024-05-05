@@ -20,7 +20,9 @@ class CustomDataset(Dataset):
 
 # Example tabular data (features and labels)
 features = np.random.rand(100, 10)  # Example: 100 samples, 10 features
-labels = np.random.randint(0, 2, size=(100,))  # Binary classification labels
+labels = []
+for i in range(len(features)):
+    labels.append(int(sum(features[i]) >= 500))
 
 # Create datasets and dataloaders
 train_dataset = CustomDataset(features[:80], labels[:80])
