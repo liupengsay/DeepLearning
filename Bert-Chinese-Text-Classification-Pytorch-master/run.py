@@ -7,15 +7,16 @@ from importlib import import_module
 import argparse
 from utils import build_dataset, build_iterator, get_time_dif
 
-parser = argparse.ArgumentParser(description='Chinese Text Classification')
-parser.add_argument('--model', type=str, required=True, help='choose a model: Bert, ERNIE')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser(description='Chinese Text Classification')
+# parser.add_argument('--model', type=str, required=True, help='choose a model: Bert, ERNIE')
+# args = parser.parse_args()
 
 
 if __name__ == '__main__':
     dataset = 'THUCNews'  # 数据集
 
-    model_name = args.model  # bert
+    #model_name = args.model  # bert
+    model_name = "bert"
     x = import_module('models.' + model_name)
     config = x.Config(dataset)
     np.random.seed(1)
